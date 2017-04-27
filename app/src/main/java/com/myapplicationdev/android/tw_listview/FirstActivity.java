@@ -1,5 +1,6 @@
 package com.myapplicationdev.android.tw_listview;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -35,7 +36,9 @@ public class FirstActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-
+                Intent intent = new Intent(getBaseContext(), SecondActivity.class);
+                intent.putExtra("Title", al.get(position));
+                startActivity(intent);
                 Toast.makeText(getApplicationContext(),al.get(position), Toast.LENGTH_LONG).show();
             }
         });
